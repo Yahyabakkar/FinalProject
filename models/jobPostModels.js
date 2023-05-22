@@ -1,39 +1,35 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const jobPostSchema = new mongoose.Schema({
-  dateTime: {
-    type: Date,
-    required: true,
+const postSchema = mongoose.Schema(
+  {
+    userId: {
+      type: String,
+      required: true,
+    },
+    firstName: {
+      type: String,
+      required: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+    },
+    location: String,
+    description: String,
+    picturePath: String,
+    userPicturePath: String,
+    likes: {
+      type: Map,
+      of: Boolean,
+    },
+    comments: {
+      type: Array,
+      default: [],
+    },
   },
-  description: {
-    type: String,
-    required: true,
-  },
-  title: {
-    type: String,
-    required: true,
-  },
-  location: {
-    type: String,
-    required: true,
-  },
-  type: {
-    type: String,
-    required: true,
-  },
-  skills: {
-    type: [String],
-  },
-  schedule: {
-    type: String,
-    required: true,
-  },
-  level: {
-    type: String,
-    required: true,
-  },
-});
+  { timestamps: true }
+);
 
-const JobPost = mongoose.model('JobPost', jobPostSchema);
+const Post = mongoose.model("Post", postSchema);
 
-module.exports = JobPost;
+export default Post;
