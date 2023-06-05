@@ -29,10 +29,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    location: String,
     level: String,
-    viewedProfile: Number,
-    impressions: Number,
   },
   { timestamps: true }
 );
